@@ -12,30 +12,30 @@ func main() {
 	app.Usage = "Sample is foo!"
 	app.Version = "1.0"
 
-  os.Setenv ("SAMPLE_ENV", "sample env")
+	os.Setenv("SAMPLE_ENV", "sample env")
 
-  app.Flags = []cli.Flag {
-    cli.StringFlag {
-      Name: "lang, l",
-      Value: "english",
-      Usage: "language for the greeting",
-    },
-    cli.StringFlag {
-      Name: "meridian, m",
-      Value: "AM",
-      Usage: "meridian for the greeting",
-    },
-    cli.StringFlag {
-      Name: "time, t",
-      Value: "07:00",
-      Usage: "'your time' for the greeting",
-    },
-    cli.StringFlag {
-      Name: "aaa, a",
-      Value: "sample",
-      EnvVar: "SAMPLE_ENV",
-    },
-  }
+	app.Flags = []cli.Flag{
+		cli.StringFlag{
+			Name:  "lang, l",
+			Value: "english",
+			Usage: "language for the greeting",
+		},
+		cli.StringFlag{
+			Name:  "meridian, m",
+			Value: "AM",
+			Usage: "meridian for the greeting",
+		},
+		cli.StringFlag{
+			Name:  "time, t",
+			Value: "07:00",
+			Usage: "'your time' for the greeting",
+		},
+		cli.StringFlag{
+			Name:   "aaa, a",
+			Value:  "sample",
+			EnvVar: "SAMPLE_ENV",
+		},
+	}
 
 	app.Action = func(c *cli.Context) error {
 		fmt.Println("-- Action ==")
